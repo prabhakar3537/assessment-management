@@ -1,0 +1,22 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 780568341319-5926vv23tcdr8qg1hpmrnhqa31ebu9ci.apps.googleusercontent.com
+            clientSecret: W_nldjgk8xXQaFQgcLezMqoh
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    dialect: org.hibernate.dialect.MySQL8Dialect
+    url: jdbc:mysql://localhost:3306/assessment?serverTimezone=UTC
+    username: root
+    password: password
+logging:
+  level:
+    root: info
+  file:
+    name: assessment.log
