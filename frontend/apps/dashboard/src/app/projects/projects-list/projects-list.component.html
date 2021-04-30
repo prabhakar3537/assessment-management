@@ -1,0 +1,31 @@
+<mat-card style="text-align: left;">
+  <h3>Current Projects- Click to edit</h3>
+  <app-search (keyPress)="searched.emit($event)"></app-search>
+
+  <mat-card-header>
+    <mat-card-title> </mat-card-title>
+  </mat-card-header>
+  <mat-card-content style="text-align: center; margin: auto; width: 75%;">
+    <mat-list>
+      <mat-list-item
+        (click)="selected.emit(project)"
+        *ngFor="let project of projects; let i = index"
+      >
+        <div class="listItem">
+          <span class="listItem__prefix">{{ i + 1 }}. </span>
+          <div mat-line class="listItem__main" style="text-align: left;">
+            <h3>{{ project.title }}</h3>
+            <h6>Description: <br />{{ project.description }}</h6>
+          </div>
+        </div>
+        <button
+          *ngIf="project.user.id === currUser.id"
+          mat-icon-button
+          (click)="deleted.emit(project); $event.stopImmediatePropagation()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

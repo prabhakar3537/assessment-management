@@ -1,0 +1,33 @@
+<div>
+  <div
+    class="maincontent"
+    style="
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    "
+  >
+    <app-quiz-details
+      [currQuiz]="selectedQuiz"
+      [allQuestions]="allQuestions"
+      (canceled)="resetQuiz()"
+      (saved)="submitQuiz($event)"
+    ></app-quiz-details>
+  </div>
+  <div
+    class="maincontent"
+    style="
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    "
+  >
+    <app-quiz-list
+      [quizes]="filteredQuiz"
+      (selected)="selectQuiz($event)"
+      (searched)="searchQuiz($event)"
+    ></app-quiz-list>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <app-questions-details
+      [currQuestion]="selectedQuestion"
+      (saved)="createQuestion($event)"
+      (addedOption)="addOption()"
+      (canceled)="resetQuestion()"
+    >
+    </app-questions-details>
+  </div>
+  <div class="maincontent">
+    <app-questions-list
+      [questions]="filteredQuestions"
+      (selected)="selectQuestion($event)"
+      (searched)="searchQuestion($event)"
+    >
+    </app-questions-list>
+  </div>
+</div>

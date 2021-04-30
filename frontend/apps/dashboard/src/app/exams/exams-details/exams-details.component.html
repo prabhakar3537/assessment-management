@@ -1,0 +1,60 @@
+<div>
+  <div *ngIf="exam" class="maincontent">
+    <mat-card-title
+      >QUIZ:
+      {{ exam.title }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ exam.description }}
+    </mat-card-subtitle>
+    <form
+      *ngIf="exam.questions"
+      (submit)="evaluate.emit(exam)"
+      #examForm="ngForm"
+    >
+      <mat-card-content style="text-align: left;">
+        <section
+          *ngFor="let question of exam.questions; let ind = index"
+          style="
+            box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+              0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+            padding: 2%;
+            margin: 1%;
+          "
+        >
+          <label id="example-radio-group-label"
+            ><h6>{{ ind + 1 }}. {{ question.description }}</h6></label
+          >
+          <mat-radio-group
+            [name]="question.id"
+            required
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="question.correctOption"
+          >
+            <mat-radio-button
+              class="example-radio-button"
+              *ngFor="let option of question.options; let i = index"
+              [value]="i"
+              style="color: black;"
+            >
+              <label id="example-radio-group-label">{{
+                option['datas']
+              }}</label>
+            </mat-radio-button>
+          </mat-radio-group>
+        </section>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          type="submit"
+          mat-button
+          color="primary"
+          [disabled]="!examForm.form.valid"
+        >
+          Submit
+        </button>
+      </mat-card-actions>
+    </form>
+  </div>
+</div>

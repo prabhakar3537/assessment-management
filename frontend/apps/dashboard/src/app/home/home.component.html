@@ -1,0 +1,30 @@
+<div class="maincontent">
+  <h1>
+    Welcome to AUMS Assessments Zone
+  </h1>
+  <div *ngIf="currUser; else notloggedin">
+    <h4>Hi there, {{ currUser.name }}!!</h4>
+    <p>You are now logged in using {{ currUser.email }}</p>
+    <br />
+    <h1>START QUIZZING</h1>
+  </div>
+
+  <ng-template #notloggedin>
+    <h4>
+      Log-in using your Accolite Digital Mail ID to access:
+    </h4>
+    <div class="half-width" style="margin: auto;">
+      <mat-card>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item *ngFor="let page of data">
+              <div mat-line class="listItem__main">
+                <h3>{{ page.title }}</h3>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,25 @@
+<div>
+  <app-search (keyPress)="searched.emit($event)"></app-search>
+
+  <mat-card>
+    <h3>Created Questions</h3>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let question of questions; let i = index">
+          <div class="listItem">
+            <span class="listItem__prefix">{{ i + 1 }}. </span>
+            <h6 mat-line>
+              {{ question.description }}
+            </h6>
+            <br />
+            <ol style="list-style: lower-alpha;">
+              <li *ngFor="let opt of question.options">
+                {{ opt['datas'] }}
+              </li>
+            </ol>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

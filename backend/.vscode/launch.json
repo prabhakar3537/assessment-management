@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AssessmentManagementApplication<assessment-management>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.accolite.assessmentmanagement.AssessmentManagementApplication",
+            "projectName": "assessment-management",
+            "args": ""
+        }
+    ]
+}

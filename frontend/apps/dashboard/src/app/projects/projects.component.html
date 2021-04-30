@@ -1,0 +1,18 @@
+<div class="maincontent">
+  <app-projects-details
+    [project]="selectedProject"
+    [currUser]="currUser"
+    (saved)="saveProject($event)"
+    (canceled)="cancel()"
+  ></app-projects-details>
+</div>
+
+<div class="maincontent">
+  <app-projects-list
+    [projects]="filteredProjects"
+    [currUser]="currUser"
+    (selected)="selectProject($event)"
+    (deleted)="deleteProject($event)"
+    (searched)="searchedProject($event)"
+  ></app-projects-list>
+</div>

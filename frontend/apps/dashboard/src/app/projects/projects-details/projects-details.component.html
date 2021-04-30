@@ -1,0 +1,46 @@
+<mat-card style="text-align: left;">
+  <h3>
+    <span *ngIf="selectedProject.id; else elseBlock"> Edit Project </span>
+    <ng-template #elseBlock>Create New Project </ng-template>
+  </h3>
+  <form (submit)="saved.emit(selectedProject)" #projectForm="ngForm">
+    <mat-card-content>
+      <mat-form-field class="quarter-width" appearance="outline">
+        <input
+          matInput
+          placeholder="Project Title"
+          type="text"
+          name="title"
+          [(ngModel)]="selectedProject.title"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <textarea
+          matInput
+          placeholder="Project Description"
+          type="text"
+          name="description"
+          [(ngModel)]="selectedProject.description"
+          required
+        >
+        </textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        *ngIf="
+          !selectedProject.id ||
+          (selectedProject.user && selectedProject.user.id === currUser.id)
+        "
+        type="submit"
+        mat-button
+        color="primary"
+        [disabled]="!projectForm.form.valid"
+      >
+        Save
+      </button>
+      <button type="button" mat-button (click)="canceled.emit()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

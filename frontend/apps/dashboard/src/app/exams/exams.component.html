@@ -1,0 +1,24 @@
+<div>
+  <div>
+    <app-exams-results
+      *ngIf="result; else examBlock"
+      [percentile]="percentile"
+      [result]="result"
+      [quiz]="selectedExam"
+    >
+    </app-exams-results>
+
+    <ng-template #examBlock>
+      <app-exams-details [exam]="exam" (evaluate)="evaluate($event)">
+      </app-exams-details>
+    </ng-template>
+  </div>
+  <div class="maincontent">
+    <app-quiz-list
+      [quizes]="filteredExam"
+      (searched)="searchQuiz($event)"
+      (checkResult)="checkResult($event)"
+      (takeExam)="takeExam($event)"
+    ></app-quiz-list>
+  </div>
+</div>

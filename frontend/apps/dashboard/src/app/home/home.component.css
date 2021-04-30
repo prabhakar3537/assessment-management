@@ -1,0 +1,20 @@
+.maincontent {
+  padding: 10%;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  margin: 5%;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+h2 {
+  margin: 1%;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+}

@@ -1,0 +1,24 @@
+<div
+  class="maincontent"
+  *ngIf="resultExists; else takeExam"
+  style="text-align: center; margin: auto; width: 50%; margin-top: 5%;"
+>
+  <mat-card-title>
+    Results for Quiz "{{ quiz.title }}" -
+    {{ this.val / this.total | percent }}</mat-card-title
+  >
+
+  <mat-card-content>
+    <p-chart [data]="res" type="pie"></p-chart>
+  </mat-card-content>
+</div>
+
+<ng-template #takeExam>
+  <div class="maincontent">
+    <mat-card>
+      <mat-card-title
+        >Results can be shown only after quiz is attended</mat-card-title
+      >
+    </mat-card>
+  </div>
+</ng-template>
