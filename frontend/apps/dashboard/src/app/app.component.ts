@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   title = 'dashboard';
   currUser: User;
 
-  links = [{ path: '/', title: 'Home' }];
+  links = [{ path: '/home', title: 'Home' }];
 
   constructor(private userService: UserService) {}
 

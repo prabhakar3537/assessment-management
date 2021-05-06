@@ -6,8 +6,12 @@
     "ng": "ng",
     "nx": "nx",
     "start": "ng serve --proxy-config proxy.conf.json",
+    "server:all": "concurrently \"npm run server\" \"ng serve\"",
+    "server": "json-server server/db.json",
     "build": "ng build",
+    "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
+    "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -22,7 +26,8 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "private": true,
   "dependencies": {
